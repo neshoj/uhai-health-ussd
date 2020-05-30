@@ -1,0 +1,163 @@
+new_user_registration:
+  name: Welcome to Uhai
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: Register account
+      next: input_national_id
+
+    - choice: "2."
+      name: Help
+      next: display_help
+
+    - choice: "00."
+      name: Exit
+      next: exit
+
+display_help:
+  name: Hi, register your details and wait for approval to be able to use Uhai service. Call +2547123456789 for more info
+  type: input_screen
+
+input_national_id:
+  name: Enter National ID No.
+  type: input_screen
+  next: input_nhif_no
+
+input_nhif_no:
+  name: Enter NHIF No.
+  type: input_screen
+  next: input_new_pin
+
+input_new_pin:
+  name: PIN ( 4 digits )
+  type: input_screen
+  next: input_confirm_pin
+
+input_confirm_pin:
+  name: Confirm PIN
+  type: input_screen
+  next: accept_terms_and_conditions
+  end: true
+
+accept_terms_and_conditions:
+  name: Do you accept our terms and conditions
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: Accept
+      next: main_menu
+
+    - choice: "2."
+      name: Decline
+      next: null
+
+active_user_login:
+  name: Welcome to UHAI
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: Enter PIN
+      next: current_pin
+
+    - choice: "2."
+      name: Reset PIN
+      next: reset_pin_display
+
+    - choice: "00."
+      name: Exit
+      next: exit
+
+current_pin:
+  name: Enter current PIN
+  type: input_screen
+  next: main_menu
+
+# OTP is sent to confirm change password is requested by phone owner
+reset_pin_display:
+  name: Hi, we have sent you a One Time PIN. Use it to login and reset your password. Call +2547123456789 for more info
+  type: end_screen
+  next: null
+
+main_menu:
+  name: Main Menu
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: My Account
+      next: my_account
+
+    - choice: "2."
+      name: Contribute
+      next: contribution_phone_used
+
+    - choice: "000."
+      name: Log out
+      next: null
+
+my_account:
+  name: My Account
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: Balance Inquiry
+      next: balance_inquiry
+
+    - choice: "2."
+      name: Mini Statement
+      next: mini_statement
+
+    - choice: "3."
+      name: Change PIN
+      next: current_pin
+
+    - choice: "00."
+      name: Back
+      next: main_menu
+
+contribution_phone_used:
+  name: Select phone number to use
+  type: menu_screen
+  items:
+    - choice: "1."
+      name: Own phone no.
+      next: input_amount
+
+    - choice: "2."
+      name: Other phone
+      next: null
+
+    - choice: "00."
+      name: Back
+      next: main_menu
+
+input_amount:
+  name: Enter amount to contribute
+  type: input_screen
+  next: tnx_confirmation
+
+input_other_phone:
+  name: Enter other phone number i.e. (2547xxxxxxxx)
+  type: input_screen
+  next: input_amount
+
+tnx_confirmation:
+  name: Confirm transaction
+  type: input_screen
+  items:
+    - choice: "1."
+      name: Yes
+      next: null
+
+    - choice: "2."
+      name: No
+      next: null
+
+    - choice: "00."
+      name: Back
+      next: main_menu
+
+exit:
+  name: Thank you for using our Services
+  type: end_screen
+  end: true
+
